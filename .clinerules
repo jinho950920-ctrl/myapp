@@ -1,0 +1,43 @@
+CRITICAL SYSTEM INSTRUCTION: Before executing ANY prompt, generating code, or modifying files, you MUST read and strictly obey all rules defined in this file. Failure to do so will result in system breakdown.
+
+# ERP Dashboard Absolute Rules V2.0
+
+## 0. [MANDATORY_SELF_CHECK] CROSS-CHECK BEFORE ANY ACTION.
+   - Before writing new code, changing existing logic, or modifying settings, you **MUST** perform a self-reflection step. Ask yourself: "Does this modification contradict or conflict with any documents linked via `[[Wiki Link]]`?"
+   - You must review connected documents in the neural network to ensure absolute consistency across the project.
+
+## 1. DO NOT CHANGE MY PRODUCT PRICES.
+   - While the dashboard tracks and continuously checks competitor prices (Competitor Radar), we **NEVER** automatically change or update our own product prices under any circumstances.
+
+## 2. NO PRODUCT MODIFICATION, CREATION, OR DELETION.
+   - Generating, updating, deleting or modifying existing products in the DB is **ABSOLUTELY FORBIDDEN**. 
+   - The system is READ-ONLY regarding the core product master data. Do not execute any code that alters the underlying product catalog.
+
+## 3. [STRICT] MANDATORY SELF-TESTING & PROOF BEFORE COMPLETION.
+   - Do not just say you "tested" it. You must physically run validation commands and present the terminal output as proof.
+   - **For Next.js UI:** Run `npm run build` or `npm run lint`. You must confirm there are no compilation or hydration errors.
+   - **For Crawlers/API:** Run a local dry-run script (e.g., `node test_crawler.js`) to verify the data parsing logic works before integrating it into the main system.
+   - If an error occurs during testing, DO NOT report completion. Fix the error first.
+
+## 4. UI-FIRST PHASE LOCK.
+   - The user has mandated a strict "UI Only" phase. Do not implement backend connections, real databases, or background web crawlers until the user explicitly states "UI modification is complete."
+   - All dashboard tabs must remain in high-fidelity mockup visual states.
+
+## 5. ENCODING & KOREAN STANDARD TIME (KST) MANDATE.
+   - **Encoding:** When generating scripts, `.bat` files, or handling stdout for Windows from WSL, ALWAYS use `UTF-8` or `chcp 65001` to prevent Korean character corruption.
+   - **Timezone:** All timestamps, cron jobs, DB records, logs, and UI displays MUST be strictly set to **Korean Standard Time (KST, Asia/Seoul, UTC+9)**. Never default to UTC without explicitly converting it to KST for the user.
+
+## 6. MANDATORY [[Wiki Link]] CASCADE REVIEW.
+   - When updating or creating any `.md` documents, you **MUST** link to any mentioned documents, DB tables, or concepts using the Obsidian `[[Document_Name]]` syntax.
+   - **(CASCADE REVIEW RULE):** When you modify a document or code file, you MUST explicitly search for and review all other documents connected to it via `[[Wiki Link]]`. If the current change breaks the logic of a connected document, you must update the connected document simultaneously to maintain neural network consistency.
+   - Data Flow Template: `[UI 컴포넌트명] 표시 데이터: [[연결된_DB_테이블명.md]]의 특정 컬럼 데이터 사용 / 호출 API: [[연결된_API_문서.md]]`
+
+## 7. [AI SAFETY] NO UNAUTHORIZED PACKAGE INSTALLATIONS.
+   - Do not run `npm install`, `pip install`, or add new dependencies (libraries) to `package.json` without explaining WHY it is necessary and getting explicit approval from the user first. Bloatware must be prevented.
+
+## 8. [AI SAFETY] THE 3-STRIKE ERROR LOOP BREAKER.
+   - If you encounter the same error or a similar chain of errors 3 times in a row while trying to fix a bug, **STOP IMMEDIATELY**.
+   - Do not guess or write random patches. Stop and explain the root cause of the loop to the user, present two possible alternative solutions, and ask for human direction.
+
+## 9. [AI SAFETY] NEVER OVERWRITE ENTIRE WORKING FILES.
+   - When fixing a small bug in a large file, do not rewrite or refactor the entire file. Only modify the specific lines or functions necessary to fix the issue. Keep changes atomic to prevent breaking previously working code.
